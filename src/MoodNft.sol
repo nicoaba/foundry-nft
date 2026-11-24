@@ -7,6 +7,12 @@ contract MoodNft is ERC721 {
     uint256 private s_tokenCounter;
     string private s_happySvgImageUri;
     string private s_sadSvgImageUri;
+    enum Mood {
+        HAPPY,
+        SAD
+    }
+
+    mapping(uint256 => Mood) private s_tokenIdToMood;
 
     constructor(string memory happySvgImageUri, string memory sadSvgImageUri) ERC721("Emoji", "EJI") {
         s_tokenCounter = 0;
@@ -17,6 +23,7 @@ contract MoodNft is ERC721 {
     function mintNft() public {
         uint256 tokenId = s_tokenCounter;
         s_tokenCounter++;
+        s_tokenIdToMood[tokenId] = Mood.HAPPY;
         _safeMint(msg.sender, tokenId);
     }
 
