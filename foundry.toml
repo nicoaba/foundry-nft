@@ -1,6 +1,9 @@
 [profile.default]
 ignored_warnings_from = ["lib"]
-fs_permissions = [{ access = "read", path = "./broadcast" }]
+fs_permissions = [
+    { access = "read", path = "./broadcast" },
+    { access = "read", path = "./img" }
+    ]
 remappings = ["@openzeppelin/contracts=lib/openzeppelin-contracts/contracts"]
 src = "src"
 out = "out"
