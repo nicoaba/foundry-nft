@@ -64,4 +64,8 @@ contract MoodNft is ERC721 {
 
         return string.concat("data:application/json;base64,", Base64.encode(bytes(json)));
     }
+
+    function getMood(uint256 tokenId) external view returns (Mood) {
+        return s_tokenIdToMood[tokenId];
+    }
 }
